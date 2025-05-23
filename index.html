@@ -1,0 +1,714 @@
+qwkdbnwkx<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyWings Airlines</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            font-size: 32px;
+        }
+        
+        /* Navigation Styles */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .nav-links a.active {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            color: white;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background: #ff5252;
+            transform: translateY(-2px);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: #1e3c72;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature-card i {
+            font-size: 40px;
+            color: #1e3c72;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1e3c72;
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #ff6b6b;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        /* Page Content Styles (hidden by default) */
+        .page-content {
+            display: none;
+            padding: 80px 0;
+        }
+        
+        .page-content.active {
+            display: block;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-plane"></i>
+                    <span>SkyWings Airlines</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#" class="active" data-page="home">Home</a></li>
+                    <li><a href="#" data-page="services">Services</a></li>
+                    <li><a href="#" data-page="contact">Contact</a></li>
+                    <li><a href="#" data-page="purchases">Purchases</a></li>
+                    <li><a href="#" data-page="timetable">Timetable</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Home Page -->
+    <section class="page-content active" id="home-content">
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Fly With Comfort & Luxury</h1>
+                    <p>Experience world-class service with SkyWings Airlines. Book your next flight with us and enjoy premium amenities, delicious meals, and exceptional comfort.</p>
+                    <a href="#" class="btn" data-page="purchases">Book Now</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Why Choose SkyWings?</h2>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-globe-americas"></i>
+                        <h3>Global Network</h3>
+                        <p>Fly to over 120 destinations worldwide with our extensive network of partners.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-concierge-bell"></i>
+                        <h3>Premium Service</h3>
+                        <p>Enjoy exceptional service from our well-trained and friendly cabin crew.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Safe & Secure</h3>
+                        <p>Your safety is our top priority with the latest aircraft and strict protocols.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Services Page -->
+    <section class="page-content" id="services-content">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-utensils"></i>
+                    <h3>In-Flight Dining</h3>
+                    <p>Gourmet meals prepared by top chefs with options for all dietary requirements.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-wifi"></i>
+                    <h3>WiFi Onboard</h3>
+                    <p>Stay connected with our high-speed internet available on all flights.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-suitcase-rolling"></i>
+                    <h3>Extra Baggage</h3>
+                    <p>Generous baggage allowance with options to purchase more if needed.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-bed"></i>
+                    <h3>Luxury Lounges</h3>
+                    <p>Access our premium lounges at major airports for relaxation before flights.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-child"></i>
+                    <h3>Family Services</h3>
+                    <p>Special amenities for families traveling with children of all ages.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-wheelchair"></i>
+                    <h3>Accessibility</h3>
+                    <p>Comprehensive services for passengers with reduced mobility.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Page -->
+    <section class="page-content" id="contact-content">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>We're here to help with any questions you may have about our services.</p>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px;">
+                <div>
+                    <h3 style="margin-bottom: 20px; color: #1e3c72;">Get in Touch</h3>
+                    <p style="margin-bottom: 30px;">Our customer service team is available 24/7 to assist you with any inquiries or concerns.</p>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <h4 style="margin-bottom: 10px; color: #1e3c72;"><i class="fas fa-phone" style="margin-right: 10px;"></i> Phone</h4>
+                        <p>+1 (800) 555-1234</p>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <h4 style="margin-bottom: 10px; color: #1e3c72;"><i class="fas fa-envelope" style="margin-right: 10px;"></i> Email</h4>
+                        <p>info@skywings.com</p>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <h4 style="margin-bottom: 10px; color: #1e3c72;"><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Headquarters</h4>
+                        <p>123 Aviation Way<br>New York, NY 10001<br>United States</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 style="margin-bottom: 20px; color: #1e3c72;">Send Us a Message</h3>
+                    <form style="display: grid; gap: 15px;">
+                        <div>
+                            <label for="name" style="display: block; margin-bottom: 5px;">Your Name</label>
+                            <input type="text" id="name" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                        </div>
+                        
+                        <div>
+                            <label for="email" style="display: block; margin-bottom: 5px;">Email Address</label>
+                            <input type="email" id="email" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" style="display: block; margin-bottom: 5px;">Subject</label>
+                            <input type="text" id="subject" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                        </div>
+                        
+                        <div>
+                            <label for="message" style="display: block; margin-bottom: 5px;">Message</label>
+                            <textarea id="message" rows="5" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Purchases Page -->
+    <section class="page-content" id="purchases-content">
+        <div class="container">
+            <div class="section-title">
+                <h2>Book Your Flight</h2>
+                <p>Find and book your next journey with SkyWings Airlines</p>
+            </div>
+            
+            <div style="background-color: white; padding: 30px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-top: 30px;">
+                <form style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                    <div>
+                        <label for="trip-type" style="display: block; margin-bottom: 5px;">Trip Type</label>
+                        <select id="trip-type" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                            <option value="roundtrip">Round Trip</option>
+                            <option value="oneway">One Way</option>
+                            <option value="multicity">Multi-City</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="from" style="display: block; margin-bottom: 5px;">From</label>
+                        <input type="text" id="from" placeholder="City or Airport" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                    </div>
+                    
+                    <div>
+                        <label for="to" style="display: block; margin-bottom: 5px;">To</label>
+                        <input type="text" id="to" placeholder="City or Airport" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                    </div>
+                    
+                    <div>
+                        <label for="departure" style="display: block; margin-bottom: 5px;">Departure</label>
+                        <input type="date" id="departure" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                    </div>
+                    
+                    <div>
+                        <label for="return" style="display: block; margin-bottom: 5px;">Return</label>
+                        <input type="date" id="return" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                    </div>
+                    
+                    <div>
+                        <label for="passengers" style="display: block; margin-bottom: 5px;">Passengers</label>
+                        <select id="passengers" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                            <option value="1">1 Adult</option>
+                            <option value="2">2 Adults</option>
+                            <option value="3">3 Adults</option>
+                            <option value="4">4 Adults</option>
+                            <option value="family">Family</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="class" style="display: block; margin-bottom: 5px;">Class</label>
+                        <select id="class" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                            <option value="economy">Economy</option>
+                            <option value="premium">Premium Economy</option>
+                            <option value="business">Business</option>
+                            <option value="first">First Class</option>
+                        </select>
+                    </div>
+                </form>
+                
+                <button class="btn" style="margin-top: 30px; display: block; width: 200px; margin-left: auto; margin-right: auto;">Search Flights</button>
+            </div>
+            
+            <div style="margin-top: 50px;">
+                <h3 style="text-align: center; margin-bottom: 30px; color: #1e3c72;">Special Offers</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                    <div style="background-color: white; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="New York" style="width: 100%; height: 200px; object-fit: cover;">
+                        <div style="padding: 20px;">
+                            <h4 style="margin-bottom: 10px; color: #1e3c72;">New York Getaway</h4>
+                            <p style="margin-bottom: 15px; color: #666;">Fly to the Big Apple from $199 round trip</p>
+                            <a href="#" class="btn" style="padding: 8px 20px; font-size: 14px;">View Deal</a>
+                        </div>
+                    </div>
+                    
+                    <div style="background-color: white; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                        <img src="https://images.unsplash.com/photo-1503917988258-f87a78e3c995?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Paris" style="width: 100%; height: 200px; object-fit: cover;">
+                        <div style="padding: 20px;">
+                            <h4 style="margin-bottom: 10px; color: #1e3c72;">Paris Romance</h4>
+                            <p style="margin-bottom: 15px; color: #666;">Special rates for couples traveling to Paris</p>
+                            <a href="#" class="btn" style="padding: 8px 20px; font-size: 14px;">View Deal</a>
+                        </div>
+                    </div>
+                    
+                    <div style="background-color: white; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                        <img src="https://images.unsplash.com/photo-1538970272646-f61fabb3be8a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Tokyo" style="width: 100%; height: 200px; object-fit: cover;">
+                        <div style="padding: 20px;">
+                            <h4 style="margin-bottom: 10px; color: #1e3c72;">Tokyo Adventure</h4>
+                            <p style="margin-bottom: 15px; color: #666;">Explore Japan with 20% off all flights</p>
+                            <a href="#" class="btn" style="padding: 8px 20px; font-size: 14px;">View Deal</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timetable Page -->
+    <section class="page-content" id="timetable-content">
+        <div class="container">
+            <div class="section-title">
+                <h2>Flight Timetable</h2>
+                <p>Check our scheduled flights and plan your journey</p>
+            </div>
+            
+            <div style="margin-top: 40px; background-color: white; padding: 30px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px;">
+                    <div>
+                        <label for="timetable-from" style="display: block; margin-bottom: 5px;">From</label>
+                        <select id="timetable-from" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                            <option value="">All Airports</option>
+                            <option value="1">bukoba</option>
+                            <option value="2">mwanza</option>
+                            <option value="3">dododma</option>
+                            <option value="4">mbeya</option>
+                            <option value="5">arusha</option>
+                            <option value="6">zanzibar</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="timetable-to" style="display: block; margin-bottom: 5px;">To</label>
+                        <select id="timetable-to" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                            <option value="">All Airports</option>
+                            <option value="1">dar es salam</option>
+                            <option value="2">arusha </option>
+                            <option value="3">bukoba</option>
+                            <option value="4">uganda </option>
+                            <option value="5">kenya</option>
+                            <option value="6">burudi</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background-color: #1e3c72; color: white;">
+                                <th style="padding: 12px 15px; text-align: left;">Flight No.</th>
+                                <th style="padding: 12px 15px; text-align: left;">Departure</th>
+                                <th style="padding: 12px 15px; text-align: left;">From</th>
+                                <th style="padding: 12px 15px; text-align: left;">To</th>
+                                <th style="padding: 12px 15px; text-align: left;">Arrival</th>
+                                <th style="padding: 12px 15px; text-align: left;">Aircraft</th>
+                                <th style="padding: 12px 15px; text-align: left;">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid #ddd;">
+                                <td style="padding: 12px 15px;">SW101</td>
+                                <td style="padding: 12px 15px;">08:00 AM</td>
+                                <td style="padding: 12px 15px;">New York (JFK)</td>
+                                <td style="padding: 12px 15px;">London (LHR)</td>
+                                <td style="padding: 12px 15px;">08:30 PM</td>
+                                <td style="padding: 12px 15px;">Boeing 787</td>
+                                <td style="padding: 12px 15px;"><span style="color: green; font-weight: bold;">On Time</span></td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #ddd;">
+                                <td style="padding: 12px 15px;">SW202</td>
+                                <td style="padding: 12px 15px;">09:15 AM</td>
+                                <td style="padding: 12px 15px;">Los Angeles (LAX)</td>
+                                <td style="padding: 12px 15px;">Tokyo (HND)</td>
+                                <td style="padding: 12px 15px;">02:30 PM (Next Day)</td>
+                                <td style="padding: 12px 15px;">Boeing 777</td>
+                                <td style="padding: 12px 15px;"><span style="color: green; font-weight: bold;">On Time</span></td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #ddd;">
+                                <td style="padding: 12px 15px;">SW305</td>
+                                <td style="padding: 12px 15px;">10:30 AM</td>
+                                <td style="padding: 12px 15px;">Chicago (ORD)</td>
+                                <td style="padding: 12px 15px;">Paris (CDG)</td>
+                                <td style="padding: 12px 15px;">11:45 PM</td>
+                                <td style="padding: 12px 15px;">Airbus A350</td>
+                                <td style="padding: 12px 15px;"><span style="color: orange; font-weight: bold;">Delayed</span></td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #ddd;">
+                                <td style="padding: 12px 15px;">SW408</td>
+                                <td style="padding: 12px 15px;">01:45 PM</td>
+                                <td style="padding: 12px 15px;">London (LHR)</td>
+                                <td style="padding: 12px 15px;">New York (JFK)</td>
+                                <td style="padding: 12px 15px;">05:15 PM</td>
+                                <td style="padding: 12px 15px;">Boeing 787</td>
+                                <td style="padding: 12px 15px;"><span style="color: green; font-weight: bold;">On Time</span></td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #ddd;">
+                                <td style="padding: 12px 15px;">SW511</td>
+                                <td style="padding: 12px 15px;">03:20 PM</td>
+                                <td style="padding: 12px 15px;">Paris (CDG)</td>
+                                <td style="padding: 12px 15px;">Chicago (ORD)</td>
+                                <td style="padding: 12px 15px;">06:40 PM</td>
+                                <td style="padding: 12px 15px;">Airbus A330</td>
+                                <td style="padding: 12px 15px;"><span style="color: green; font-weight: bold;">On Time</span></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px 15px;">SW614</td>
+                                <td style="padding: 12px 15px;">07:00 PM</td>
+                                <td style="padding: 12px 15px;">Tokyo (HND)</td>
+                                <td style="padding: 12px 15px;">Los Angeles (LAX)</td>
+                                <td style="padding: 12px 15px;">12:30 PM</td>
+                                <td style="padding: 12px 15px;">Boeing 777</td>
+                                <td style="padding: 12px 15px;"><span style="color: red; font-weight: bold;">Cancelled</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>SkyWings Airlines</h3>
+                    <p>Your journey begins with us. Experience the difference with SkyWings - where comfort meets luxury in the skies.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#" data-page="home">Home</a></li>
+                        <li><a href="#" data-page="services">Services</a></li>
+                        <li><a href="#" data-page="contact">Contact</a></li>
+                        <li><a href="#" data-page="purchases">Book a Flight</a></li>
+                        <li><a href="#" data-page="timetable">Flight Status</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Information</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press Center</a></li>
+                        <li><a href="#">Travel Advisory</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect With Us</h3>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-facebook" style="margin-right: 8px;"></i> Facebook</a></li>
+                        <li><a href="#"><i class="fab fa-twitter" style="margin-right: 8px;"></i> Twitter</a></li>
+                        <li><a href="#"><i class="fab fa-instagram" style="margin-right: 8px;"></i> Instagram</a></li>
+                        <li><a href="#"><i class="fab fa-linkedin" style="margin-right: 8px;"></i> LinkedIn</a></li>
+                        <li><a href="#"><i class="fab fa-youtube" style="margin-right: 8px;"></i> YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 SkyWings Airlines. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-links a, .footer-column a[data-page]');
+            const pageContents = document.querySelectorAll('.page-content');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const page = this.getAttribute('data-page');
+                    
+                    // Update active nav link
+                    navLinks.forEach(navLink => {
+                        navLink.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    // Show the selected page content
+                    pageContents.forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    document.getElementById(`${page}-content`).classList.add('active');
+                    
+                    // Scroll to top
+                    window.scrollTo(0, 0);
+                });
+            });
+            
+            // Initialize the home page as active
+            document.getElementById('home-content').classList.add('active');
+            document.querySelector('.nav-links a[data-page="home"]').classList.add('active');
+        });
+    </script>
+</body>
+</html>
